@@ -1,17 +1,21 @@
 install:
 	yarn
 
-start: server-start
+start-server:
+	cd src/server && BABEL_ENV=node ../../node_modules/.bin/babel-node index.js
 
-build: server-build
+start-client:
+	node_modules/.bin/webpack-dev-server --open --mode development
+
+build: build-server build-client
+
+build-server:
+	rm -rf dist/server
+	BABEL_ENV=node node_modules/.bin/babel src/server -d dist/server
+
+build-client:
+	rm -rf dist/client
+	node_modules/.bin/webpack --mode production
 
 clean:
 	rm -rf dist/
-
-### Server
-
-server-start:
-	cd src/server && BABEL_ENV=node ../../node_modules/.bin/babel-node index.js
-
-server-build: clean
-	BABEL_ENV=node node_modules/.bin/babel src/server -d dist/server
