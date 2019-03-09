@@ -1,31 +1,15 @@
 {
-    "env": {
-        "node": {
-            "presets": [
-                [
-                    "@babel/preset-env",
-                    {
-                        "targets": {
-                            "node": "10"
-                        }
-                    }
-                ]
-            ]
+  "presets": [
+    "@babel/preset-react",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "ie >= 11"],
+          "node": "10"
         },
-    },
-    "presets": [
-        "@babel/preset-react",
-        [
-            "@babel/preset-env",
-            {
-                "targets": {
-                    "browsers": [
-                        "last 2 versions",
-                        "ie >= 11"
-                    ]
-                },
-                "useBuiltIns": "usage",
-            }
-        ]
-    ],
+        "useBuiltIns": "usage",
+      }
+    ]
+  ]
 }

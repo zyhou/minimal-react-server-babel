@@ -2,7 +2,7 @@ install:
 	yarn
 
 start-server:
-	cd src/server && BABEL_ENV=node ../../node_modules/.bin/babel-node index.js
+	cd src/server && ../../node_modules/.bin/babel-node index.js
 
 start-client:
 	node_modules/.bin/webpack-dev-server --open --mode development
